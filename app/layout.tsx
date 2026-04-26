@@ -5,7 +5,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
 import Providers from "@/components/TanStackProvider/TanStackProvider";
-import SidebarNotes from "@/components/SidebarNotes/SidebarNotes";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
