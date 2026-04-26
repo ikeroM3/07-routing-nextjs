@@ -7,7 +7,7 @@ import { fetchNotes } from "@/lib/api";
 import NotesClient from "./Notes.client";
 
 type Props = {
-  params: Promise<{ slug: string[] }>;
+  params: { slug: string[] };
 };
 
 export default async function FilteredNotesPage({ params }: Props) {
