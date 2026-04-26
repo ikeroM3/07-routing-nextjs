@@ -1,3 +1,6 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import {
   dehydrate,
   HydrationBoundary,
@@ -21,8 +24,10 @@ export default async function NoteModalPage({ params }: Props) {
     queryFn: () => fetchNoteById(id),
   });
 
+  const router = useRouter();
+
   return (
-    <Modal>
+    <Modal onClose={() => router.back()}>
       <HydrationBoundary state={dehydrate(queryClient)}>
         <NotePreviewClient id={id} />
       </HydrationBoundary>
