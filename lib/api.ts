@@ -19,13 +19,18 @@ export const fetchNotes = async ({
   tag,
   page = 1,
 }: ParamsGetProps) => {
+  const params: Record<string, string | number> = { page, perPage: 12 };
+
+  if (searchText) {
+    params.search = searchText;
+  }
+
+  if (tag) {
+    params.tag = tag;
+  }
+
   const response = await axios.get<FetchNotesResponse>("/notes", {
-    params: {
-      search: searchText,
-      tag: tag,
-      page: page,
-      perPage: 12,
-    },
+    params,
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/json",
